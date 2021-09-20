@@ -31,7 +31,6 @@ class Message(models.Model):
                              related_name='messages', on_delete=models.CASCADE)
     message = models.TextField(verbose_name=_('message'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
-    updated_at = models.DateTimeField(auto_now_add=True, verbose_name=_('updated at'))
 
     def __str__(self):
         return self.sender.username + " " + str(self.created_at)
