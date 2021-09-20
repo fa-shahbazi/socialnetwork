@@ -9,7 +9,6 @@ from rest_framework.views import APIView
 User = get_user_model()
 
 
-
 class FollowersListAPIView(generics.ListCreateAPIView):
     serializer_class = RelationSerializer
     queryset = Relation.objects.all()
