@@ -13,6 +13,6 @@ class RelationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Relation
-        fields = ['from_user', 'to_user', 'created_at', 'updated_at']
+        fields = ['from_user', 'to_user']
         read_only_fields = ['from_user',]
 
