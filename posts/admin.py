@@ -1,22 +1,24 @@
 from django.contrib import admin
-from .models import Post, Comment, Vote
-# Register your models here.
+
+from . import models
 
 
-@admin.register(Post)
+@admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('user', 'slug')
-    list_filter = ('slug',)
-    search_fields = ('user', 'location')
+    list_display = ('user', 'location')
 
 
-@admin.register(Comment)
+@admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('author', 'reply')
+    list_display = ('post', 'author')
 
 
-@admin.register(Vote)
-class VoteAdmin(admin.ModelAdmin):
-    list_display = ('user',)
+@admin.register(models.LikePost)
+class LikePostAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user')
 
+
+@admin.register(models.LikeComment)
+class LikeCommentAdmin(admin.ModelAdmin):
+    list_display = ('comment', 'user')
 
