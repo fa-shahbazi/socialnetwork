@@ -14,7 +14,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        fields = ['from_user', 'to_user', 'message', 'goal', 'room']
+        fields = ['starter', 'friend', 'message', 'goal', 'room']
 
     def create(self, validated_data):
         request = self.context.get('request')
