@@ -1,8 +1,7 @@
 from django.contrib import admin
-from friends.models import Relation
-# Register your models here.
+from . import models
 
 
-@admin.register(Relation)
-class VoteAdmin(admin.ModelAdmin):
+@admin.register(models.Relation)
+class RelationAdmin(admin.ModelAdmin):
     list_display = ('from_user', 'to_user')
