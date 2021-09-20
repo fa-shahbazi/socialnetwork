@@ -19,7 +19,6 @@ class Profile(models.Model):
     phone_number = models.PositiveBigIntegerField(_('phone number'), unique=True,
                                                   blank=True, null=True)
     created_at = models.DateTimeField(verbose_name=_('created time'), auto_now_add=True)
-    updated_at = models.DateTimeField(verbose_name=_('updated at'), auto_now=True)
 
     class Meta:
         db_table = 'profiles'
