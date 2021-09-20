@@ -21,17 +21,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             'avatar',
         )
 
-    def create(self, validated_data):
-        profile = Profile.objects.create_user(
-            user=validated_data.get('user'),
-            age=validated_data.get('age'),
-            bio=validated_data.get('bio', ''),
-            phonenumber=validated_data.get('phonenumber', ''),
-            gender=validated_data.get('gender'),
-            avatar=validated_data.get('avatar'),
-        )
 
-        return profile
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -60,7 +50,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
     token = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
-        model = Profile
+        model = User
         fields = ['email', 'password', 'token']
         extra_kwargs = {'email': {"validators": []}, 'password': {'write_only': True}}
 
