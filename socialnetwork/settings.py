@@ -121,23 +121,6 @@ MEDIA_URL = '/media/'
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# # rest_framework
-# REST_FRAMEWORK = {
-#
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         # 'rest_framework.authentication.TokenAuthentication',
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',
-#     ],
-# }
-
-# AUTHENTICATION_BACKENDS = (
-#     'social_core.backends.open_id.OpenIdAuth',
-#     'social_core.backends.google.GoogleOpenId',
-#     'social_core.backends.google.GoogleOAuth2',
-#     'social_core.backends.google.GoogleOAuth',
-#     'django.contrib.auth.backends.ModelBackend',
-# )
-
 
 # Cache Configurations
 CACHES = {
