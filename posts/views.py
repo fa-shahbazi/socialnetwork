@@ -24,6 +24,10 @@ class PostListApiView(ListCreateAPIView):
     def perform_create(self, serializer):
         Post.objects.create(user=self.request.user, **serializer.validated_data)
 
+    def get_queryset(self):
+        return Post.objects.all()
+
+
 
 
 class PostDetailApiView(RetrieveUpdateDestroyAPIView):
