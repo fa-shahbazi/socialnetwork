@@ -1,14 +1,12 @@
-
-
 from pathlib import Path
 from decouple import config, Csv
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-
 
 # Application definition
 
@@ -62,7 +60,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'socialnetwork.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -77,7 +74,6 @@ DATABASES = {
         'PORT': config('PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -97,7 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -110,7 +105,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -126,7 +120,6 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
 
 # # rest_framework
 # REST_FRAMEWORK = {
@@ -145,8 +138,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 #     'django.contrib.auth.backends.ModelBackend',
 # )
 
-REST_FRAMEWORK = {
 
+# Cache Configurations
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+REST_FRAMEWORK = {
 
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -161,3 +162,7 @@ REST_FRAMEWORK = {
     },
 
 }
+
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.UserAuthenticationBackend',
+]
