@@ -10,10 +10,6 @@ class CommentListApiView(ListCreateAPIView):
     query_set = Comment.objects.all()
     serializer_class = CommentSerializer
 
-
-    def perform_create(self, serializer):
-        serializer.save()
-
     def get_queryset(self):
         return Comment.objects.all()
 
