@@ -9,7 +9,6 @@ class Relation(models.Model):
     from_user = models.ForeignKey(User, related_name='followings', on_delete=models.CASCADE)
     to_user = models.ForeignKey(User, related_name='followers', on_delete=models.CASCADE)
     created_at = models.DateTimeField(verbose_name=_('created time'), auto_now_add=True)
-    updated_at = models.DateTimeField(verbose_name=_('updated at'), auto_now=True)
 
     class Meta:
         db_table = 'relation'
